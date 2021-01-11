@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-6">
+        <a routerLink="/commandes" class="btn btn-link text-danger">
+        <i class="fa fa-arrow-circle-o-left"></i>
+        Back
+        </a>
+    </div>
+    <div class="col-md-6">
+        <div class="btn-group pull-right">
+            <a (click)="valideCommande()" class="btn btn-success"><i class="fa fa-check"></i> Valid</a>
+            <a (click)="cancelCommande()" class="btn btn-secondary"><i class="fa fa-pause"></i> Cancel</a>
+            <a (click)="deleteCommande()" class="btn btn-danger"><i class="fa fa-ban"></i> Delete</a>
+        </div>
+    </div>
+</div>
+<hr>
+<div *ngIf="commande" class="card">
+
+    <h3 class="card-header text-light"  
+    [class.bg-danger]="!commande.valideCommande" 
+    [class.bg-success]="commande.valideCommande">
+        Reservation ID : {{commande.id}}
+          
+    </h3>
+    <div class="card-body">
+        <div class="row">
+            <div class="cold-md-8 col-sm-6">
+                <h4><i class="fa fa-user"></i> Client : {{commande.clientFirstName}} {{commande.clientLastName}}</h4>
+            </div>
+        </div>
+        <hr>
+        <ul class="list-group">
+            <li class="list-group-item">Dish : {{commande.name | uppercase}}</li>
+            <li class="list-group-item">reservation Date : {{commande.dateOfCommande}}</li>
+            <li class="list-group-item">Number of People : {{commande.numberOfPeople}}</li>
+            <li class="list-group-item">Email : {{commande.clientEmail}}</li>
+            <li class="list-group-item">Phone : {{commande.clientPhone}}</li>
+            
+        </ul>
+    </div>
+
+</div>

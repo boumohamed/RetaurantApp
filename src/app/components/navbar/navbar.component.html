@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 p-3">
+    <div class="container">
+        <a routerLink="/" class="navbar-brand"><span class="text-success"><i class="fa fa-cutlery"></i> BM</span><span class="text-light ">RESTAURANT</span></a>
+        <button class="navbar-toggler" type="button" 
+        data-toggle="collapse" data-target="#Main">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="Main">
+            <ul class="navbar-nav mr-auto" >
+                <li class="nav-item">
+                    <a routerLink="/" class="nav-link "><i class="fa fa-home"></i> Home</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a routerLink="/contactus" class="nav-link"><i class="fa fa-phone"></i> Contact us</a>
+                </li>
+                <li class="nav-item" *ngIf="Logged">
+                    <a routerLink="/commandes" class="nav-link"><i class="fa fa-list"></i> Reservations</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto" >
+                <li class="nav-item" *ngIf="!Logged">
+                    <a routerLink="/login" class="nav-link"><i class="fa fa-sign-in"></i> Login</a>
+                </li>
+                <li class="nav-item" *ngIf="Logged">
+                    <a href="#" class="nav-link"> {{user}}</a>
+                </li>
+                <li class="nav-item" *ngIf="Logged">
+                    <a routerLink="/register" class="nav-link"> <i class="fa fa-user-plus"></i> Add Admin</a>
+                </li>
+                <li class="nav-item" *ngIf="Logged">
+                    <a (click)="onLogout()" class="nav-link"> <i class="fa fa-sign-out"></i> Logout</a>
+                </li>
+                
+            </ul>
+        </div>
+
+    </div>
+    
+</nav>

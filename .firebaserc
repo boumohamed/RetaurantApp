@@ -1,0 +1,18 @@
+{
+  "targets": {
+    "clientpanelprod-30a04": {
+      "hosting": {
+        "myRestaurant": [
+          "clientpanelprod-30a04"
+        ]
+      }
+    },
+    "restaurant-44251": {
+      "hosting": {
+        "myRestaurant": [
+          "restaurant-44251"
+        ]
+      }
+    }
+  }
+}

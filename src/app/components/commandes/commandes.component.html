@@ -1,0 +1,36 @@
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+          <h2><i class="fa fa-list"></i> Reservations</h2>
+        </div>
+    </div>
+      <div class="table-responsive-sm">
+      <table  class="table table-striped">
+      <thead class="thead-invers">
+        <tr>
+          <th>Item</th>
+          <th>Client</th>
+          <th>Date</th>
+          <th>Nombre Of People</th>
+          
+        </tr>
+        <tr *ngFor="let commande of commandes">
+          
+          <td>{{commande.name}} </td>
+          <td>{{commande.clientFirstName}} {{commande.clientLastName}}</td>
+          <td>{{commande.dateOfCommande}}</td>
+          <td>{{commande.numberOfPeople}}</td>
+          <td><a routerLink="/commandes/{{commande.id}}"  class="btn btn-info btn-sm"><i class="fa fa-arrow-circle-o-right"> Details</i></a></td>
+          <td>
+            <span class="text-success"><i class="fa fa-check" *ngIf="commande.valideCommande"></i></span>
+            <span class="text-danger"><i class="fa fa-pause" *ngIf="!commande.valideCommande"></i></span>
+          </td>
+        </tr>
+      
+      </thead>
+      </table>
+      </div>
+      
+   

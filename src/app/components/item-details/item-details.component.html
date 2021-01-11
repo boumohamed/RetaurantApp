@@ -1,0 +1,32 @@
+<a routerLink="/" class="btn btn-link text-danger">
+    <i class="fa fa-arrow-circle-o-left"></i> BACK
+    </a>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{item.name | uppercase}}</h5>
+      <p class="card-text">
+        {{item.description | lowercase}}
+      </p>
+      <p class="card-text">
+        Chef : {{item.chef | uppercase}}
+      </p>
+      <p class="card-text text-secondary">
+        Price : {{item.price | currency:"MAD ":"symbol"}}
+      </p>
+      <a routerLink="addcommande/{{item.id}}" class="btn btn-info btn-sm">Add Reservation <i class="fa fa-arrow-circle-o-right"></i></a>
+    </div>
+    <div>
+    <img
+    [src]="item.image1"
+      class="card-img-bottom"
+      alt="..."
+    />
+  </div>
+  <div>
+    <img
+    [src]="item.image2"
+      class="card-img-bottom"
+      alt="..."
+    />
+  </div>
+  </div>
