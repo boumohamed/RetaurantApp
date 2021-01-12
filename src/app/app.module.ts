@@ -25,6 +25,7 @@ import { ServeComponent } from './components/serve/serve.component';
 import { CommandesComponent } from './components/commandes/commandes.component';
 import { AddCommandeComponent } from './components/add-commande/add-commande.component';
 import { CommandeDetailsComponent } from './components/commande-details/commande-details.component';
+import { ItemEditComponent } from './components/item-edit/item-edit.component';
 
 @NgModule({
   
@@ -44,7 +45,8 @@ import { CommandeDetailsComponent } from './components/commande-details/commande
     ServeComponent,
     CommandesComponent,
     AddCommandeComponent,
-    CommandeDetailsComponent
+    CommandeDetailsComponent,
+    ItemEditComponent
   ],
   imports: [
     BrowserModule,

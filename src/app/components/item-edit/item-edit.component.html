@@ -1,0 +1,82 @@
+
+    <div class="row">
+        <div class="col-md-6">
+            <a routerLink="/" class="btn btn-link">
+            <i class="fa fa-arrow-circle-o-left"></i> BACK
+            </a>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header bg-sexondary">
+            Add Item To Menu
+        </div>
+        <div class="card-body">
+            <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+                <div class="form-goup">
+                    <label for="name">Name of Item</label>
+                    <input 
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        [ngClass]="{'is-invalid':itemName.errors && itemName.touched}"
+                        #itemName="ngModel"
+                        [(ngModel)]="item.name"
+                        required
+                        >
+                        <div [hidden]="!itemName.errors?.required" class="invalid-feedback">
+                            Name of item is required
+                        </div>
+                </div>
+
+                <div class="form-goup">
+                    <label for="lastName">Name of The Chef</label>
+                    <input 
+                        type="text"
+                        class="form-control"
+                        name="chef"
+                        [ngClass]="{'is-invalid':itemChef.errors && itemChef.touched}"
+                        #itemChef="ngModel"
+                        [(ngModel)]="item.chef"
+                        required
+                        >
+                        <div [hidden]="!itemChef.errors?.required" class="invalid-feedback">
+                            Name of chef is required
+                        </div>
+                </div>
+                <div class="form-goup">
+                    <label for="price">Price</label>
+                    <input 
+                        type="number"
+                        class="form-control"
+                        name="price"
+                        [ngClass]="{'is-invalid':itemPrice.errors && itemPrice.touched}"
+                        #itemPrice="ngModel"
+                        [(ngModel)]="item.price"
+                        required
+                        >          
+                        <div [hidden]="!itemPrice.errors?.required" class="invalid-feedback">
+                            Price is required
+                        </div>              
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description </label>
+                    <textarea class="form-control"  rows="3" name="description"
+                    #itemDesc="ngModel"
+                    [(ngModel)]="item.description"
+                    [ngClass]="{'is-invalid':itemDesc.errors && itemDesc.touched}"
+                    required
+                    ></textarea>
+                    <div [hidden]="!itemDesc.errors?.required" class="invalid-feedback">
+                        The desvription is required
+                    </div>
+                  </div>
+                <input type="submit" value="Update" class="btn btn-info btn-block">
+
+            </form>
+        </div>
+    </div>
+

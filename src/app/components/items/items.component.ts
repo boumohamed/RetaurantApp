@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsServiceService} from '../../services/items-service.service';
 import { item } from '../../models/item';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-items',
@@ -10,12 +11,22 @@ import { item } from '../../models/item';
 export class ItemsComponent implements OnInit {
 
   items: item[]; 
-  constructor(private data : ItemsServiceService) { }
+  Logged :boolean;
+  constructor(private auth : AuthService,
+              private data : ItemsServiceService) { }
 
   ngOnInit(): void {
     this.data.getItems().subscribe(items => {
       this.items = items;     
     });
+    this.auth.getauth().subscribe(auth => {
+      if(auth)
+      {
+        this.Logged = true;
+      }
+        else
+          this.Logged = false;
+    })
   }
 
 }
