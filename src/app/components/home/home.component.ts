@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.getauth().subscribe(auth => {
-      if(auth)
+      if(auth.email == 'mb.bouzri@gmail.com')
         this.Logged = true;
         else
           this.Logged = false;

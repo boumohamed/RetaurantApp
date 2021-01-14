@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   Logged :boolean;
+  admin :boolean = false;
   user: string;
 
   constructor(private auth : AuthService,
@@ -20,10 +21,12 @@ export class NavbarComponent implements OnInit {
     this.auth.getauth().subscribe(auth => {
       if(auth)
       {
+        if(auth.email == 'mb.bouzri@gmail.com') this.admin = true;
+        else this.admin = false;
         this.Logged = true;
         this.user = auth.email;
       }
-       
+
         else
           this.Logged = false;
     })
@@ -35,6 +38,7 @@ export class NavbarComponent implements OnInit {
       cssClass: 'alert-success', timeout:3000
   });
   this.Logged = false;
+  this.admin = false;
   this.router.navigate(['/login']);
 }
 

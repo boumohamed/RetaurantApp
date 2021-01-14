@@ -97,11 +97,17 @@
                         [ngClass]="{'is-invalid':numberOfPeople.errors && numberOfPeople.touched}"
                         #numberOfPeople="ngModel"
                         [(ngModel)]="commande.numberOfPeople"
+                        pattern="[1-4]"
                         required
                         >          
                         <div [hidden]="!numberOfPeople.errors?.required" class="invalid-feedback">
-                            Price is required
-                        </div>              
+                            Number Of People is required
+                        </div>   
+                        <div [hidden]="!numberOfPeople.errors?.pattern" class="invalid-feedback">
+                             Between 1 person And 4 People 
+                        </div> 
+                        
+                              
                 </div>
                 <div class="form-goup">
                     <label for="dateOfCommande">Reservation Date </label>

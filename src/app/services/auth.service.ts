@@ -24,12 +24,22 @@ export class AuthService {
     });
     
   }
+  addAdmin(email: string, password: string)
+  {
+    return new Promise((resolve, rejet) => {
+      this.afFuth.createUserWithEmailAndPassword(email, password)
+      .then(userData => {resolve(userData)
+
+        },
+      err => rejet(err))
+    });
+  }
   logout()
   {
     this.afFuth.signOut();
   }
   getauth()
   {
-    return this.afFuth.authState.pipe( map( auth => auth))
+    return this.afFuth.authState.pipe(map( auth => auth))
   }
 }

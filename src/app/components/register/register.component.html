@@ -1,1 +1,56 @@
-<p>register works!</p>
+<div class="row">
+    <div class="col-md-6">
+        <a routerLink="/" class="btn btn-link text-danger">
+        <i class="fa fa-arrow-circle-o-left"></i> BACK
+        </a>
+    </div>
+    
+</div>
+<div class="card">
+    <div class="card-header bg-sexondary">
+        Send us Your Message
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-goup">
+                <label for="clientEmail">Email</label>
+                <input 
+                    type="email"
+                    class="form-control"
+                    name="clientEmail" 
+                    [(ngModel)]="email" 
+                    required
+                    >
+                    
+            </div>
+
+            <div class="form-goup">
+                <label for="password1">Password </label>
+                <input 
+                    type="password"
+                    class="form-control"
+                    name="clientpassword1"
+                    required
+                    [(ngModel)]="password1"
+                    >                   
+            </div>
+            <div class="form-goup">
+                <label for="password2">Confirm Password </label>
+                <input 
+                    type="password"
+                    class="form-control"
+                    name="clientpassword2"
+                    [(ngModel)]="password2"
+                    required
+                    >       
+                            
+            </div>
+            
+            <div [hidden]="password2 == password1" class="text-danger">
+                Password should be the same
+            </div>   
+            <input type="submit" [disabled]="password2 != password1" value="Add Admin" class="btn btn-success btn-block">
+        </form>
+        
+    </div>
+</div>

@@ -20,7 +20,7 @@ export class ItemsComponent implements OnInit {
       this.items = items;     
     });
     this.auth.getauth().subscribe(auth => {
-      if(auth)
+      if(auth.email == 'mb.bouzri@gmail.com')
       {
         this.Logged = true;
       }

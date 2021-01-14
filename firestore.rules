@@ -7,8 +7,9 @@ service cloud.firestore {
       allow read
     }
     match /commandes/{commandes} {
-      allow read,write: if
+      allow read: if
           request.auth != null;
+          allow write;
     }
   }
 }

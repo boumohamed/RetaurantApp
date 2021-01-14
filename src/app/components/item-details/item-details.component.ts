@@ -3,6 +3,7 @@ import { item } from '../../models/item';
 import { ItemsServiceService} from '../../services/items-service.service';
 import { Router, Params, ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-item-details',
   templateUrl: './item-details.component.html',
@@ -18,7 +19,6 @@ export class ItemDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.data.getItem(this.id).subscribe( item => {
-      
     this.item = item;
     })
   };
