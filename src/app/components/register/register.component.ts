@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  email: string;
-  password1: string;
-  password2: string;
+  email: string = '';
+  password1: string = '';
+  password2: string = '';
   
   constructor(private auth : AuthService,
               private flash : FlashMessagesService,
@@ -25,10 +25,17 @@ export class RegisterComponent implements OnInit {
   {
     this.auth.addAdmin(this.email, this.password1)
     .then(res => {
-      this.flash.show('Ok',{
+      this.flash.show('You Have Registered successfuly ;) ',{
         cssClass: 'alert-success', timeout:4000
+      });
+      this.router.navigate(['/']);
+    })
+    
+    .catch(err => 
+      {
+        this.flash.show( err,{
+          cssClass: 'alert-danger', timeout:4000
+        });
       })
-    });
-    this.router.navigate(['/']);
   }
 }

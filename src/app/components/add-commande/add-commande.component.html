@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="card">
-        <div class="card-header bg-sexondary">
+        <div class="card-header bg-info text-light">
             Add Your Reservation
         </div>
         <div class="card-body">
@@ -46,8 +46,8 @@
                             Last Name is required
                         </div>
                 </div>
-
-                <div class="form-goup">
+               
+                <div class="form-goup" *ngIf="!Logged">
                     <label for="clientEmail">Email</label>
                     <input 
                         type="email"
@@ -126,6 +126,7 @@
                             Date is required
                         </div>              
                 </div>
+                <hr>
                 <input type="submit" value="Add Reservation" class="btn btn-success btn-block">
 
             </form>

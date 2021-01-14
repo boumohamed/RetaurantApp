@@ -5,6 +5,7 @@ import { item } from '../../models/item';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { CommandeService } from '../../services/commande.service';
 import {formatDate} from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 import { ItemsServiceService} from '../../services/items-service.service';
 import { Router, Params, ActivatedRoute } from '@angular/router';
@@ -17,7 +18,7 @@ import { Router, Params, ActivatedRoute } from '@angular/router';
 export class AddCommandeComponent implements OnInit {
 
 
-
+  Logged: boolean = false;
 sysDateDepart : string;
 sysDateEnd : string;
 Date2 : Date = new Date();
@@ -29,6 +30,7 @@ commande : commande =
     clientFirstName: '',
     clientLastName: '',
     numberOfPeople: 1,
+    clientEmail: '',
 }
 item0 : item = 
 {
@@ -45,7 +47,8 @@ item0 : item =
               private route : ActivatedRoute,
               private items :  ItemsServiceService,
               private flash : FlashMessagesService,
-              private router: Router
+              private router: Router,
+              private auth : AuthService
               
 ) { }
 
@@ -57,6 +60,18 @@ item0 : item =
    this.items.getItem(this.route.snapshot.params['id']).subscribe( item => {  
     this.item0 = item;
     });
+
+    this.auth.getauth().subscribe(auth => {
+      if(auth)
+      {
+        
+        this.Logged = true;
+        this.commande.clientEmail = auth.email;
+      }
+
+        else
+          this.Logged = false;
+    })
   }
   onSubmit({value, valid}: {value: commande, valid: boolean})
   {

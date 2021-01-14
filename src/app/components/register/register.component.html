@@ -7,8 +7,8 @@
     
 </div>
 <div class="card">
-    <div class="card-header bg-sexondary">
-        Send us Your Message
+    <div class="card-header bg-info text-light">
+        Join us
     </div>
     <div class="card-body">
         <form (ngSubmit)="onSubmit()">
@@ -49,7 +49,8 @@
             <div [hidden]="password2 == password1" class="text-danger">
                 Password should be the same
             </div>   
-            <input type="submit" [disabled]="password2 != password1" value="Add Admin" class="btn btn-success btn-block">
+            <hr>
+            <input type="submit" [disabled]="password2 != password1" value="Register" class="btn btn-success btn-block">
         </form>
         
     </div>

@@ -5,8 +5,10 @@
       <div class="card h-100">
         <img
         [src]="item.image1"
-          class="card-img-top"
-          alt="..."
+          class="card-img-top " 
+          [alt]="item.name"
+          style="max-height: 180px"
+          routerLink="item/{{item.id}}"
         />
         <div class="card-body">
           <h5 class="card-title">{{item.name | uppercase}}</h5>
@@ -18,12 +20,12 @@
            </p>
            
         </div>
-        <a routerLink="item/{{item.id}}" class="btn btn-info btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a>
-        <a *ngIf="Logged" routerLink="edit/{{item.id}}" class="btn btn-dark btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+        <a routerLink="item/{{item.id}}" class="btn btn-info btn-block"><i class="fa fa-arrow-circle-o-right"></i> Details</a>
+        <a *ngIf="Logged" routerLink="edit/{{item.id}}" class="btn btn-dark btn-block"><i class="fa fa-pencil"></i> Edit</a>
         
       </div>
+    </div>    
     </div>
-    
-    </div>
+
 
 
