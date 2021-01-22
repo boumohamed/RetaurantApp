@@ -22,7 +22,7 @@
           <td>{{commande.clientFirstName}} {{commande.clientLastName}}</td>
           <td>{{commande.dateOfCommande}}</td>
           <td>{{commande.numberOfPeople}}</td>
-          <td><a routerLink="/commandes/{{commande.id}}"  class="btn btn-info btn-sm"><i class="fa fa-arrow-circle-o-right"> Details</i></a></td>
+          <td><a routerLink="/commandes/{{commande.id}}"  class="btn btn-outline-info"><i class="fa fa-arrow-circle-o-right"> Details</i></a></td>
           <td>
             <span class="text-success"><i class="fa fa-check" *ngIf="commande.valideCommande"></i></span>
             <span class="text-danger"><i class="fa fa-pause" *ngIf="!commande.valideCommande"></i></span>

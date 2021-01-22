@@ -5,15 +5,13 @@
             <i class="fa fa-arrow-circle-o-left"></i> BACK
             </a>
         </div>
-        <div class="col-md-6">
-
-        </div>
+        
     </div>
-    <div class="card">
-        <div class="card-header bg-info text-light">
-            Add Your Reservation
-        </div>
+    <div class="card">      
         <div class="card-body">
+            <h1 class="text-center">
+                <span class="text-secondary"><i class="fa fa-plus"></i> </span> Add Your Reservation
+            </h1>
             <form #commandeForm="ngForm" (ngSubmit)="onSubmit(commandeForm)">
                 <div class="form-goup">
                     <label for="name">First Name</label>
@@ -130,6 +128,7 @@
                 <input type="submit" value="Add Reservation" class="btn btn-success btn-block">
 
             </form>
+            
         </div>
     </div>
 

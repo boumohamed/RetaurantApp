@@ -1,7 +1,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <a routerLink="/" class="btn btn-link">
+            <a routerLink="/" class="btn btn-link text-danger">
             <i class="fa fa-arrow-circle-o-left"></i> BACK
             </a>
         </div>
@@ -10,10 +10,11 @@
         </div>
     </div>
     <div class="card">
-        <div class="card-header bg-info text-light">
-            Add Item To Menu
-        </div>
         <div class="card-body">
+            <h1 class="text-center">
+                <span class="text-secondary"><i class="fa fa-plus"></i> </span> Add Item To our Menu
+            </h1>
+            
             <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
                 <div class="form-goup">
                     <label for="name">Name of Item</label>
@@ -104,7 +105,7 @@
                     required
                     ></textarea>
                     <div [hidden]="!itemDesc.errors?.required" class="invalid-feedback">
-                        The desvription is required
+                        The description is required
                     </div>
                   </div>
                 <input type="submit" value="Add To Menu" class="btn btn-success btn-block">

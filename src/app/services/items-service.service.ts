@@ -69,7 +69,7 @@ updateItem(item: item)
 }
 deleteItem(item: item)
 {
-  this.itemsDoc = this.firestore.doc(`clients/${item.id}`);
+  this.itemsDoc = this.firestore.doc(`items/${item.id}`);
   this.itemsDoc.delete();
 }
 /*

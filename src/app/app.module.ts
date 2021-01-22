@@ -5,6 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { MessagesService } from './services/messages.service'
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FormsModule } from '@angular/forms';
 import { ItemsServiceService} from './services/items-service.service';
@@ -26,6 +27,8 @@ import { CommandesComponent } from './components/commandes/commandes.component';
 import { AddCommandeComponent } from './components/add-commande/add-commande.component';
 import { CommandeDetailsComponent } from './components/commande-details/commande-details.component';
 import { ItemEditComponent } from './components/item-edit/item-edit.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   
@@ -46,7 +49,9 @@ import { ItemEditComponent } from './components/item-edit/item-edit.component';
     CommandesComponent,
     AddCommandeComponent,
     CommandeDetailsComponent,
-    ItemEditComponent
+    ItemEditComponent,
+    MessagesComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,8 @@ import { ItemEditComponent } from './components/item-edit/item-edit.component';
   ],
   providers: [
     ItemsServiceService,
-    FlashMessagesService
+    FlashMessagesService,
+    MessagesService,
     
   ],
   bootstrap: [AppComponent]

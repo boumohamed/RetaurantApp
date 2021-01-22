@@ -9,7 +9,7 @@ import { item } from '../../models/item';
 
 import { from, Observable } from "rxjs";
 import { AngularFireStorage } from "@angular/fire/storage";
-import { Router, Params, ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
 
 
 @Component({

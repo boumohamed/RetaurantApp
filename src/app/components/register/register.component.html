@@ -1,57 +1,65 @@
-<div class="row">
-    <div class="col-md-6">
-        <a routerLink="/" class="btn btn-link text-danger">
-        <i class="fa fa-arrow-circle-o-left"></i> BACK
-        </a>
+<div class="col-md-6 mx-auto">
+    <div class="card">  
+        <div class="card-body">
+            <h1 class="text-center">
+                <span class="text-success"><i class="fa fa-user-plus"></i> </span> Register
+            </h1>
+            <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+                <div class="form-goup">
+                    <label for="clientEmail">Email</label>
+                    <input 
+                        type="email"
+                        class="form-control"
+                        name="clientEmail" 
+                        #clientEmail="ngModel"
+                        [ngClass]="{'is-invalid':clientEmail.errors && clientEmail.touched}"
+                        [(ngModel)]="email" 
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        required
+                        >
+                <div [hidden]="!clientEmail.errors?.required" class="invalid-feedback">
+                    Email is required
+                </div>
+                <div [hidden]="!clientEmail.errors?.pattern" class="invalid-feedback">
+                    Email is not valide
+                </div>
+                </div>
+                <div class="form-goup">
+                    <label for="password1">Password </label>
+                    <input 
+                        type="password"
+                        class="form-control"
+                        name="clientpassword1"
+                        [(ngModel)]="password1"
+                        #clientpassword1="ngModel"
+                        [ngClass]="{'is-invalid':clientpassword1.errors && clientpassword1.touched}"
+                        pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})"
+                        required
+                        >                   
+                </div>
+                <div [hidden]="!clientpassword1.errors?.required" class="invalid-feedback">
+                    Password is required
+                </div>
+                <div [hidden]="!clientpassword1.errors?.pattern" class="invalid-feedback">
+                    Password is Not valid
+                </div>
+                <div class="form-goup">
+                    <label for="password2">Confirm Password </label>
+                    <input 
+                        type="password"
+                        class="form-control"
+                        name="clientpassword2"
+                        [(ngModel)]="password2"
+                        required
+                        >                
+                </div>
+                <div [hidden]="password2 == password1" class="text-danger">
+                    Password should be the same
+                </div>   
+                <hr>
+                <input type="submit" [disabled]="password2 != password1" value="Register" class="btn btn-success btn-block">
+            </form>
+        </div>
     </div>
-    
 </div>
-<div class="card">
-    <div class="card-header bg-info text-light">
-        Join us
-    </div>
-    <div class="card-body">
-        <form (ngSubmit)="onSubmit()">
-            <div class="form-goup">
-                <label for="clientEmail">Email</label>
-                <input 
-                    type="email"
-                    class="form-control"
-                    name="clientEmail" 
-                    [(ngModel)]="email" 
-                    required
-                    >
-                    
-            </div>
 
-            <div class="form-goup">
-                <label for="password1">Password </label>
-                <input 
-                    type="password"
-                    class="form-control"
-                    name="clientpassword1"
-                    required
-                    [(ngModel)]="password1"
-                    >                   
-            </div>
-            <div class="form-goup">
-                <label for="password2">Confirm Password </label>
-                <input 
-                    type="password"
-                    class="form-control"
-                    name="clientpassword2"
-                    [(ngModel)]="password2"
-                    required
-                    >       
-                            
-            </div>
-            
-            <div [hidden]="password2 == password1" class="text-danger">
-                Password should be the same
-            </div>   
-            <hr>
-            <input type="submit" [disabled]="password2 != password1" value="Register" class="btn btn-success btn-block">
-        </form>
-        
-    </div>
-</div>

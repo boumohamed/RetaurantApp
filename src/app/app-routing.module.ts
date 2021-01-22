@@ -14,6 +14,8 @@ import { CommandesComponent } from './components/commandes/commandes.component';
 import { AddCommandeComponent } from './components/add-commande/add-commande.component';
 import { CommandeDetailsComponent } from './components/commande-details/commande-details.component';
 import { ItemEditComponent } from './components/item-edit/item-edit.component'
+import { MessagesComponent } from './components/messages/messages.component';
+import { MessageComponent } from './components/message/message.component';
 
 const routes : Routes =
 [
@@ -25,7 +27,9 @@ const routes : Routes =
   {path : 'contactus', component: ContactUsComponent},
   {path : 'commandes', component: CommandesComponent},
   {path : 'commandes/:id', component: CommandeDetailsComponent},
-  {path : 'edit/:id', component: ItemEditComponent},
+  {path : 'item/:id/edit/:id', component: ItemEditComponent},
+  {path : 'messages', component: MessagesComponent},
+  {path : 'messages/:id', component: MessageComponent},
   {path : 'item/:id/addcommande/:id', component: AddCommandeComponent},
   {path : '**', component: NotFoundComponent},
  

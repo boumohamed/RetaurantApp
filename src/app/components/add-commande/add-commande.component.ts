@@ -8,7 +8,7 @@ import {formatDate} from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 
 import { ItemsServiceService} from '../../services/items-service.service';
-import { Router, Params, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-commande',
@@ -81,7 +81,7 @@ item0 : item =
       this.commande.name = this.item0.name;
       this.commande.valideCommande = false;
       this.data.newCommande(this.commande);
-      this.flash.show('Commande Added ',{
+      this.flash.show('Reservation Added ',{
         cssClass: 'alert-success', timeout:3000
       });
       this.router.navigate(['/']);

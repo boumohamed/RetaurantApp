@@ -21,10 +21,7 @@ export class CommandeDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
     this.data.getCommande(this.id).subscribe( commande => {
-      this.commande = commande;
-      console.log(this.commande);
-      
-      
+      this.commande = commande;    
       });
   }
   deleteCommande()
