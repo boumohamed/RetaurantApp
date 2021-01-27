@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="Logged">
     <div class="row">
       <div class="col-md-10">
         <app-items></app-items>
@@ -7,4 +7,9 @@
         <app-sidebar></app-sidebar>
       </div>
     </div>
+  </div>
+  
+  <div class="container" *ngIf="!Logged">
+    <div class="row">
+        <app-items></app-items>
   </div>

@@ -13,14 +13,19 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class CommandeService {
 
   commandes: Observable<commande[]>;
+  clientCommandes: Observable<commande[]>;
   commande: Observable<commande>;
   commandesCollection: AngularFirestoreCollection<commande>; 
+  clientCommandesCollection: AngularFirestoreCollection<commande>; 
   commandesDoc: AngularFirestoreDocument<commande>; 
+  
   
   constructor( private firestore: AngularFirestore) 
   { 
     this.commandesCollection = this.firestore.collection('commandes',
     ref => ref.orderBy('name', 'asc'));
+    
+    
   }
   getCommandes(): Observable<commande[]>
   {
@@ -44,7 +49,7 @@ export class CommandeService {
     this.commandesDoc = this.firestore.doc<commande>(`commandes/${id}`);
     
     this.commande =  this.commandesDoc.snapshotChanges().pipe(map(action => {
-    if( action.payload.exists == false)
+    if( action.payload.exists == false )
     {
       return null;
     }
@@ -58,6 +63,10 @@ export class CommandeService {
     }));  
     return this.commande; 
   }
+
+  
+  
+
   newCommande(commande: commande)
 {
   this.commandesCollection.add(commande);

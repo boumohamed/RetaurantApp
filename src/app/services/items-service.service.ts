@@ -57,6 +57,7 @@ export class ItemsServiceService {
     }));  
     return this.item; 
   }
+  
 newItem(item: item)
 {
   this.itemsCollection.add(item);

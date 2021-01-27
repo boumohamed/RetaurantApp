@@ -1,0 +1,114 @@
+
+    <div class="row">
+        <div class="col-md-6">
+            <a routerLink="/" class="btn btn-link text-danger">
+            <i class="fa fa-arrow-circle-o-left"></i> BACK
+            </a>
+        </div>
+        
+    </div>
+    <div class="card">      
+        <div class="card-body">
+            <h1 class="text-center">
+                <span class="text-secondary"><i class="fa fa-refresh"></i> </span> Update Your Reservation
+            </h1>
+            <form #commandeForm="ngForm" (ngSubmit)="onSubmit(commandeForm)">
+                <div class="form-goup">
+                    <label for="name">First Name</label>
+                    <input 
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        [ngClass]="{'is-invalid':clientFirstName.errors && clientFirstName.touched}"
+                        #clientFirstName="ngModel"
+                        [(ngModel)]="commande.clientFirstName"
+                        required
+                        >
+                        <div [hidden]="!clientFirstName.errors?.required" class="invalid-feedback">
+                            First Name is required
+                        </div>
+                </div>
+
+                <div class="form-goup">
+                    <label for="clientLastName">Last Name</label>
+                    <input 
+                        type="text"
+                        class="form-control"
+                        name="clientLastName"
+                        [ngClass]="{'is-invalid':clientLastName.errors && clientLastName.touched}"
+                        #clientLastName="ngModel"
+                        [(ngModel)]="commande.clientLastName"
+                        required
+                        >
+                        <div [hidden]="!clientLastName.errors?.required" class="invalid-feedback">
+                            Last Name is required
+                        </div>
+                </div>
+
+                <div class="form-goup">
+                    <label for="clientEmail">Phone</label>
+                    <input 
+                        type="text"
+                        class="form-control"
+                        name="clientPhone"
+                        [ngClass]="{'is-invalid':clientPhone.errors && clientPhone.touched}"
+                        #clientPhone="ngModel"
+                        [(ngModel)]="commande.clientPhone"
+                        pattern="^((\\+91-?)|0)?[0-9]{10}$"
+                        placeholder="0655875891"
+                        required
+                        >
+                        <div [hidden]="!clientPhone.errors?.required" class="invalid-feedback">
+                            Phone is required
+                        </div>
+                        <div [hidden]="!clientPhone.errors?.pattern" class="invalid-feedback">
+                            Phone is not valide
+                        </div>
+                </div>
+
+                <div class="form-goup">
+                    <label for="numberofpeople">Number Of People </label>
+                    <input 
+                        type="number"
+                        class="form-control"
+                        name="numberofpeople"
+                        [ngClass]="{'is-invalid':numberOfPeople.errors && numberOfPeople.touched}"
+                        #numberOfPeople="ngModel"
+                        [(ngModel)]="commande.numberOfPeople"
+                        pattern="[1-4]"
+                        required
+                        >          
+                        <div [hidden]="!numberOfPeople.errors?.required" class="invalid-feedback">
+                            Number Of People is required
+                        </div>   
+                        <div [hidden]="!numberOfPeople.errors?.pattern" class="invalid-feedback">
+                             Between 1 person And 4 People 
+                        </div> 
+                        
+                              
+                </div>
+                <div class="form-goup">
+                    <label for="dateOfCommande">Reservation Date </label>
+                    <input 
+                        type="date"
+                        class="form-control"
+                        name="dateOfCommande"
+                        [ngClass]="{'is-invalid':dateOfCommande.errors && dateOfCommande.touched}"
+                        #dateOfCommande="ngModel"
+                        [(ngModel)]="commande.dateOfCommande"
+                        min="{{sysDateDepart}}"
+                        max="{{sysDateEnd}}"
+                        required
+                        >          
+                        <div [hidden]="!dateOfCommande.errors?.required" class="invalid-feedback">
+                            Date is required
+                        </div>              
+                </div>
+                <hr>
+                <input type="submit" value="Update Reservation" class="btn btn-info btn-block">
+
+            </form>
+            
+        </div>
+    </div>
+

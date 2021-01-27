@@ -16,6 +16,8 @@ import { CommandeDetailsComponent } from './components/commande-details/commande
 import { ItemEditComponent } from './components/item-edit/item-edit.component'
 import { MessagesComponent } from './components/messages/messages.component';
 import { MessageComponent } from './components/message/message.component';
+import { MyReservationComponent } from './components/my-reservation/my-reservation.component';
+import { UpdateMyReservationComponent } from './components/update-my-reservation/update-my-reservation.component';
 
 const routes : Routes =
 [
@@ -26,10 +28,12 @@ const routes : Routes =
   {path : 'item/:id', component: ItemDetailsComponent},
   {path : 'contactus', component: ContactUsComponent},
   {path : 'commandes', component: CommandesComponent},
+  {path : 'myreservation', component: MyReservationComponent},
   {path : 'commandes/:id', component: CommandeDetailsComponent},
   {path : 'item/:id/edit/:id', component: ItemEditComponent},
   {path : 'messages', component: MessagesComponent},
   {path : 'messages/:id', component: MessageComponent},
+  {path : 'myreservation/UpdateMyReservation/:id', component: UpdateMyReservationComponent},
   {path : 'item/:id/addcommande/:id', component: AddCommandeComponent},
   {path : '**', component: NotFoundComponent},
  

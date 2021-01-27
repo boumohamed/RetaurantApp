@@ -2,7 +2,7 @@
     <i class="fa fa-arrow-circle-o-left"></i> BACK
     </a>
     
-  <div class="card ">
+  <div class="card">
     <div class="card-body">
       <h5 class="card-title"> {{item.name | uppercase}}</h5>
       <p class="card-text">
@@ -23,13 +23,16 @@
     [src]="item.image1"
       class="card-img-bottom"
       [alt]="item.name"
+      style="max-height: 680px"
     />
   </div>
+  <hr>
   <div>
     <img
     [src]="item.image2"
       class="card-img-bottom"
       [alt]="item.name"
+      style="max-height: 680px"
     />
   </div>
   </div>

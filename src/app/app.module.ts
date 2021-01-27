@@ -29,6 +29,8 @@ import { CommandeDetailsComponent } from './components/commande-details/commande
 import { ItemEditComponent } from './components/item-edit/item-edit.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { MessageComponent } from './components/message/message.component';
+import { MyReservationComponent } from './components/my-reservation/my-reservation.component';
+import { UpdateMyReservationComponent } from './components/update-my-reservation/update-my-reservation.component';
 
 @NgModule({
   
@@ -51,7 +53,9 @@ import { MessageComponent } from './components/message/message.component';
     CommandeDetailsComponent,
     ItemEditComponent,
     MessagesComponent,
-    MessageComponent
+    MessageComponent,
+    MyReservationComponent,
+    UpdateMyReservationComponent
   ],
   imports: [
     BrowserModule,
